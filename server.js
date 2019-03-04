@@ -5,13 +5,11 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
 var Message = require('./models/chat');
+var db = require('./models/db');
 
-module.exports = {
-  conStr: 'mongodb://nolan_dakyung:admin123@ds213255.mlab.com:13255/nolan_dakyung'
-};
 
 //mongoose.Promise = global.Promise;
-mongoose.connect(conStr, { useNewUrlParser: true }).then(
+mongoose.connect(db.conStr, { useNewUrlParser: true }).then(
   () => {console.log('Database is now connected') },
   err => { console.log('Can not connect to the database '+ err)}
 );
@@ -68,4 +66,3 @@ app.post('/messages', async (req, res) => {
 io.on('connection', () =>{
   console.log('a user is connected')
 })
-
