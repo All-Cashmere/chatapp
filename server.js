@@ -6,8 +6,12 @@ var io = require('socket.io')(http);
 var mongoose = require('mongoose');
 var Message = require('./models/chat');
 
-mongoose.Promise = global.Promise;
-mongoose.connect(Message.conStr, { useNewUrlParser: true }).then(
+module.exports = {
+  conStr: 'mongodb://nolan_dakyung:admin123@ds213255.mlab.com:13255/nolan_dakyung'
+};
+
+//mongoose.Promise = global.Promise;
+mongoose.connect(conStr, { useNewUrlParser: true }).then(
   () => {console.log('Database is now connected') },
   err => { console.log('Can not connect to the database '+ err)}
 );
