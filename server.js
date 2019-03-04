@@ -4,8 +4,18 @@ var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
-var database = require("./models/db");
 var Message = require('./models/chat');
+
+mongoose.Promise = global.Promise;
+mongoose.connect(Message.conStr, { useNewUrlParser: true }).then(
+  () => {console.log('Database is now connected') },
+  err => { console.log('Can not connect to the database '+ err)}
+);
+
+var server = http.listen(3000, () => {
+  console.log('server is running on port', server.address().port);
+});
+
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
@@ -55,12 +65,3 @@ io.on('connection', () =>{
   console.log('a user is connected')
 })
 
-mongoose.Promise = global.Promise;
-mongoose.connect(database.conStr, { useNewUrlParser: true }).then(
-  () => {console.log('Database is now connected') },
-  err => { console.log('Can not connect to the database '+ err)}
-);
-
-var server = http.listen(3000, () => {
-  console.log('server is running on port', server.address().port);
-});

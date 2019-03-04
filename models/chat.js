@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
 // this will be our data base's data structure 
 const ChatSchema = new Schema(
     {
@@ -14,3 +15,6 @@ const ChatSchema = new Schema(
 
 // export the new Schema so we could modify it using Node.js
 module.exports = mongoose.model("Chat", ChatSchema);
+module.exports = {
+    conStr: 'mongodb://nolan_dakyung:admin123@ds213255.mlab.com:13255/nolan_dakyung'
+ };

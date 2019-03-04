@@ -25,41 +25,25 @@ height:50px;
 </div>
 
 <script>
-  var app = angular.module('title',[]);
-   var socket = io();
-   var TypeTimer;                
-          var TypingInterval = 1000;
-          var data_server;
+ var socket = io();
     $(() => {
         $("#send").click(()=>{
             sendMessage({name: $("#name").val(), message: $("#message").val()});
         })
-
         getMessages()
     })
-
     socket.on('message', addMessages)
-
     function addMessages(message){
         $("#messages").append(`<h4> ${message.name} </h4> <p> ${message.message} </p>`)
     }
-
     function getMessages(){
       $.get('http://localhost:3000/messages', (data) => {
         data.forEach(addMessages);
       })
     }
-
     function sendMessage(message){
       $.post('http://localhost:3000/messages', message)
     }
-
-
-    })
-
-   
-
-  
 </script>
 
    <br>
