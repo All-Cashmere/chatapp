@@ -55,7 +55,7 @@ io.on('connection', () =>{
   console.log('a user is connected')
 })
 
-//mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 mongoose.connect(database.conStr, { useNewUrlParser: true }).then(
   () => {console.log('Database is now connected') },
   err => { console.log('Can not connect to the database '+ err)}

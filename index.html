@@ -25,7 +25,11 @@ height:50px;
 </div>
 
 <script>
+  var app = angular.module('title',[]);
    var socket = io();
+   var TypeTimer;                
+          var TypingInterval = 1000;
+          var data_server;
     $(() => {
         $("#send").click(()=>{
             sendMessage({name: $("#name").val(), message: $("#message").val()});
@@ -49,6 +53,11 @@ height:50px;
     function sendMessage(message){
       $.post('http://localhost:3000/messages', message)
     }
+
+
+    })
+
+   
 
   
 </script>
