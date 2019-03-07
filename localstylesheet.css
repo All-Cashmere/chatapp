@@ -1,6 +1,6 @@
 #scrollBoxPastMessages{
     height:18%;
-    width:25%;
+    width:90%;
     overflow:auto;
     background-color:rgb(96, 143, 106);
     color:rgb(0, 0, 0);
@@ -23,12 +23,12 @@
     bottom: 18%;
     position: fixed;
     display: inline-block;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 #localMessageHistory{
-    min-height: 500px;
-    height:500px;
+    min-height: 350px;
+    height:350px;
     width:58%;
     overflow:auto;
     background-color:rgb(208, 208, 243);
@@ -38,4 +38,7 @@
     padding-top:20px;
     margin: auto;
 
+}
+body{
+    background-image: url("/resources/bg5.jpg");
 }

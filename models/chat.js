@@ -14,5 +14,17 @@ const ChatSchema = new Schema(
     }
 );
 
-// export the new Schema so we could modify it using Node.js
+// event log
+const eventSchema = new Schema(
+    {
+        eventType: String,
+        time: String
+    },
+    {
+        collection: "events"
+    }
+);
+
+// export the new Schema's so we could modify it using Node.js
 module.exports = mongoose.model("Chat", ChatSchema);
+module.exports = mongoose.model("events", eventSchema);

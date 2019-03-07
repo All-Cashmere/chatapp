@@ -20,7 +20,7 @@
    var socket = io();
     $(() => {
         $("#send").click(()=>{
-            sendMessage({name: $("#name").val(), message: $("#message").val()});
+            sendMessage({name: $("#name").val(), message: $("#message").val(), time: new Date($.now())});
         })
 
         getMessages()
@@ -31,10 +31,11 @@
     //adds messages to the screen
     function addMessages(message){
         $("#localMessageHistory").append(`<tr class="PastMessageTableRow"><td> ${message.name}: ${message.message} <td></tr>`)
+        addOldMessages(message)
     }
         //adds OLD messages to the screen
         function addOldMessages(message){
-        $("#tablePastMessages").append(`<p> ${message.name}: ${message.message} </p>`)
+        $("#tablePastMessages").append(`<p> ${message.name}: ${message.message} </br>${new Date($.now())} </p>`)
     }
 
 
