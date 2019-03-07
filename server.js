@@ -81,7 +81,7 @@ io.sockets.on('connection', (socket) =>{
 
     console.log('\n-------Store Event in Database-------\nSocket: '+connectEvent.socket+'\nWith type: '+connectEvent.type+"\nHas been connected @: "+ connectEvent.connect +'\nIn the: '+connectEvent.room+'\nSaved to database at: '+ connectEvent.connect)
 
-
+     
 
   if (err) throw err;
 
