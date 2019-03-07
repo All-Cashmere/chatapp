@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const ChatSchema = new Schema(
     {
         name: String,
-        message: String
+        message: String,
+        time: String
     },
     {
         collection: "chats"

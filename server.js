@@ -8,6 +8,9 @@ var Message = require('./models/chat');
 var db = require('./models/db');
 
 
+
+
+
 //mongoose.Promise = global.Promise;
 mongoose.connect(db.conStr, { useNewUrlParser: true }).then(
   () => {console.log('Database is now connected') },

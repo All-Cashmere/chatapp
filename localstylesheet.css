@@ -1,0 +1,41 @@
+#scrollBoxPastMessages{
+    height:18%;
+    width:25%;
+    overflow:auto;
+    background-color:rgb(96, 143, 106);
+    color:rgb(0, 0, 0);
+    scrollbar-base-color:gold;
+    font-family:sans-serif;
+    padding:10px;
+    bottom: 0;
+    position: fixed;
+}
+
+.PastMessageTableRow{
+    border: 1px solid black;
+}
+
+#tablePastMessages{
+    width:99%;
+}
+
+#bottomBoxHeader{
+    bottom: 18%;
+    position: fixed;
+    display: inline-block;
+    font-size: 2em;
+}
+
+#localMessageHistory{
+    min-height: 500px;
+    height:500px;
+    width:58%;
+    overflow:auto;
+    background-color:rgb(208, 208, 243);
+    color:rgb(0, 0, 0);
+    scrollbar-base-color:gold;
+    font-family:sans-serif;
+    padding-top:20px;
+    margin: auto;
+
+}

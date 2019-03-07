@@ -3,26 +3,17 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nolan Dakyung Chat App</title>
+
+  <link rel="stylesheet" href="localstylesheet.css" type="text/css"/>
+
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-.footer {
- position:absolute;
-bottom:0;
-width:100%;
-height:50px;
-}
-</script>
 </head>
 <body>
-<div class="container">
-     <div id="messages">
-
-    </div>
-</div>
 
 <script>
 
@@ -37,13 +28,20 @@ height:50px;
 
     socket.on('message', addMessages)
 
+    //adds messages to the screen
     function addMessages(message){
-        $("#messages").append(`<h4> ${message.name} </h4> <p> ${message.message} </p>`)
+        $("#localMessageHistory").append(`<tr class="PastMessageTableRow"><td> ${message.name}: ${message.message} <td></tr>`)
+    }
+        //adds OLD messages to the screen
+        function addOldMessages(message){
+        $("#tablePastMessages").append(`<p> ${message.name}: ${message.message} </p>`)
     }
 
+
+    //gets the messages from the database and calls add message to add each one to the screen
     function getMessages(){
       $.get('http://localhost:3000/messages', (data) => {
-        data.forEach(addMessages);
+        data.forEach(addOldMessages);
       })
     }
 
@@ -59,7 +57,6 @@ height:50px;
 </script>
 
    <br>
-   <footer class="footer">
     <div class="container" style="padding: 0.2em o.2em;">
         <br>
         <div class="row">
@@ -72,6 +69,11 @@ height:50px;
         <button id="send" class="float-left btn btn-info">Send</button>
         </div>   
     </div>
-</footer>
+    <div id="localMessageHistory">  
+      </div> 
+    <h2 id="bottomBoxHeader">Complete Message History:</h2>
+    <div id="scrollBoxPastMessages">  
+      <table id="tablePastMessages"></table>
+    </div>  
 </body>
 </html>
