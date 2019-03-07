@@ -30,7 +30,7 @@
 
     //adds messages to the screen
     function addMessages(message){
-        $("#localMessageHistory").append(`<tr class="PastMessageTableRow"><td> ${message.name}: ${message.message} <td></tr>`)
+        $("#localMessageHistory").append(`<tr class="PastMessageTableRow"><td><b> ${message.name}: ${message.message} </b><td></tr>`)
         addOldMessages(message)
     }
         //adds OLD messages to the screen

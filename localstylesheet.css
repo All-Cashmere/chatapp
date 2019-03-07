@@ -9,10 +9,12 @@
     padding:10px;
     bottom: 0;
     position: fixed;
+    opacity: 0.5;
 }
 
 .PastMessageTableRow{
     border: 1px solid black;
+    opacity: 1;
 }
 
 #tablePastMessages{
@@ -37,6 +39,7 @@
     font-family:sans-serif;
     padding-top:20px;
     margin: auto;
+    opacity: 0.5;
 
 }
 body{
