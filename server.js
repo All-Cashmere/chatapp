@@ -29,7 +29,11 @@ router.route('/messages/:user').get((req, res)=>{
     res.send(messages);
   })
 });
-
+router.get('/event', (req, res)=>{
+  Events.find({}, (err, events)=>{
+    res.find(events);
+  })
+});
 
 
 
@@ -167,7 +171,4 @@ io.sockets.on('connection', (socket) =>{
   });
   //events.save(`a user connected, Time: ${new Date($.now())}`);
 });
-
-
-
 }

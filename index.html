@@ -21,14 +21,13 @@
     $(() => {
         $("#send").click(()=>{
             sendMessage({name: $("#name").val(), room: $("#room").val(), message: $("#message").val(), time: new Date($.now())});
-            sendEvent({eventType: "A message was sent", room: $("#room").val(), time: new Date($.now())});
+            sendEvent({room: $("#room").val(),eventType: "A message was sent", time: new Date($.now())});
         })
 
         getMessages()
     })
-
     socket.on('message', addMessages)
-    //socket.on('event', addEvents)
+    socket.on('event', addEvents)
 
     //adds messages to the screen
     function addMessages(message){
@@ -55,12 +54,8 @@
 
     
     function sendEvent(event){
-      $.post('http://localhost:3000/events', event)
+      $.save('http://localhost:3000/event', event)
     }
-
-
-
-
   
 </script>
 
