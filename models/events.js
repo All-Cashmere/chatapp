@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 // event log
 const eventSchema = new Schema(
     {
-        eventType: String,
-        name: String,
+       
         room: String,
+        eventType: String,
         time: String
     },
     {
