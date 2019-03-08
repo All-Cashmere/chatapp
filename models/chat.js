@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 // this will be our data base's data structure 
 const ChatSchema = new Schema(
     {
+        room: String,
         name: String,
         message: String,
         time: String

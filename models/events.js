@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 const eventSchema = new Schema(
     {
         eventType: String,
+        name: String,
+        room: String,
         time: String
     },
     {
