@@ -101,7 +101,6 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 
 
-module.exports = (io) => {
 
 io.sockets.on('connection', (socket) =>{
   //when the client emits adduser this listens and executes
@@ -171,4 +170,3 @@ io.sockets.on('connection', (socket) =>{
   });
   //events.save(`a user connected, Time: ${new Date($.now())}`);
 });
-}
